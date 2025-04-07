@@ -1,702 +1,1110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with JohnDoe landing page.">
-    <meta name="author" content="Devcrud">
-    <link rel="icon" href="assets/imgs/favicon.ico" type="image/x-icon">
-    <title>Sila Dennis | Home</title>
-    <!-- font icons -->
-    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <meta name="description" content="Sila Dennis - Software Engineer and Developer Portfolio">
+    <meta name="author" content="Sila Dennis">
+    <title>Sila Dennis | Software Engineer</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-    <!-- Bootstrap + sila main styles -->
-    <link rel="stylesheet" href="assets/css/sila.css">
-    <link rel="stylesheet" href="assets/css/testimonials.css">
-</head>
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-    <header class="header">
-        <div class="container">
-            <ul class="social-icons pt-3">
-                <li class="social-item"><a class="social-link text-light" href="https://www.facebook.com/dennis.silas.942/"><i class="ti-facebook" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="https://twitter.com/Dr20_30"><i class="ti-twitter" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="https://www.instagram.com/dennis.sila.942/"><i class="ti-instagram" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="https://github.com/SilaDennisN"><i class="ti-github" aria-hidden="true"></i></a></li>
-            </ul>  
-            <div class="header-content">
-                <h4 class="header-subtitle">Hello, I am</h4>
-                <h1 class="header-title">Sila Dennis</h1>
-                <h6 class="header-mono">Software Engineer | Developer</h6>
-                <a href="assets/files/sila_cv.pdf" target="_blank" class="btn btn-primary btn-rounded"><i
-                        class="ti-printer pr-2"></i>Print Resume</a>
-            </div>
-        </div>
+    <style>
+        /* Custom CSS */
+        :root {
+            --primary: #e74c3c;
+            --secondary: #34495e;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+        }
         
-        <!-- Drawer for images 
-        <div class="image-drawer">
-            <img src="assets/slide_imgs/img0.jpg" alt="Image 1">
-            <img src="assets/slide_imgs/profile.jpg" alt="Image 1"> 
-            <img src="assets/slide_imgs/img1-1.jpg" alt="Image 2"> 
-            <img src="assets/slide_imgs/img1-2.jpg" alt="Image 3">
-        </div>-->
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            color: var(--dark);
+            background-color: #fff;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        .header {
+            height: 100vh;
+            background: linear-gradient(rgba(52, 73, 94, 0.8), rgba(52, 73, 94, 0.8)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .social-icons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            list-style: none;
+            display: flex;
+        }
+        
+        .social-item {
+            margin: 0 10px;
+        }
+        
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .header-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .header-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .header-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .header-mono {
+            font-size: 1.25rem;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+        }
+        
+        .brand-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .brand-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .brand-subtitle {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin: 0 15px;
+        }
+        
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--dark);
+            transition: var(--transition);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .about-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .card-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .info-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .info-list li {
+            margin-bottom: 15px;
+        }
+        
+        .info-list span {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .expertise-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .expertise-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .expertise-content h4 {
+            margin-bottom: 5px;
+        }
+        
+        .expertise-content p {
+            color: var(--gray);
+        }
+        
+        /* Resume Section */
+        .bg-dark {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .card-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .experience-item {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary);
+            border-radius: 50%;
+        }
+        
+        .experience-item .title {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .experience-item .position {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .experience-item .subtitle {
+            color: var(--gray);
+        }
+        
+        .progress-container {
+            margin-bottom: 15px;
+        }
+        
+        .progress-container h6 {
+            margin-bottom: 8px;
+        }
+        
+        .progress {
+            height: 8px;
+            background-color: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: var(--primary);
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Hire Section */
+        .hire-section {
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .hire-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .portfolio-filter {
+            padding: 8px 15px;
+            margin: 5px;
+            background-color: white;
+            border: 1px solid #eee;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .portfolio-filter.active, .portfolio-filter:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .portfolio-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-item:hover .portfolio-content {
+            transform: translateY(0);
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        
+        .contact-info {
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 15px;
+        }
+        
+        .contact-form {
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .highlight {
+            color: var(--primary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-grid, .resume-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-title {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .header-title {
+                font-size: 2.5rem;
+            }
+            
+            .social-icons {
+                position: relative;
+                top: auto;
+                right: auto;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header" id="home">
+        <ul class="social-icons">
+            <li class="social-item"><a class="social-link" href="https://www.facebook.com/dennis.silas.942/"><i class="fab fa-facebook"></i></a></li>
+            <li class="social-item"><a class="social-link" href="https://twitter.com/Dr20_30"><i class="fab fa-twitter"></i></a></li>
+            <li class="social-item"><a class="social-link" href="https://www.instagram.com/dennis.sila.942/"><i class="fab fa-instagram"></i></a></li>
+            <li class="social-item"><a class="social-link" href="https://github.com/SilaDennisN"><i class="fab fa-github"></i></a></li>
+        </ul>
+        
+        <div class="header-content">
+            <h4 class="header-subtitle">Hello, I am</h4>
+            <h1 class="header-title">Sila Dennis</h1>
+            <h6 class="header-mono">Software Engineer | Developer</h6>
+            <a href="#" class="btn"><i class="fas fa-file-pdf"></i> Download Resume</a>
+        </div>
     </header>
-<!-- images slide javascript -->
-<script>
-    window.onload = function () {
-        var images = document.querySelectorAll('.image-drawer img');
-        var i = 0;
-        setInterval(function () {
-            images[i].style.display = 'none';
-            i = (i + 1) % images.length;
-            images[i].style.display = 'block';
-        }, 5000); // Adjust delay between images (in milliseconds) as needed
-    };
-
-
-</script>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
-        <div class="container">
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#resume" class="nav-link">Resume</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav brand">
-                    <img src="assets/imgs/avatar.jpg" alt="" class="brand-img">
-                    <li class="brand-txt">
-                        <h5 class="brand-title">Sila Dennis</h5>
-                        <div class="brand-subtitle">Software Engineer | Developer</div>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="#portfolio" class="nav-link">Portfolio</a>
-                    </li>
-                    <li class="nav-item last-item">
-                        <a href="#contact" class="nav-link">Contact</a>
-                    </li>
-                </ul>
+    
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="brand">
+                <img src="/api/placeholder/100/100" alt="Sila Dennis" class="brand-img">
+                <div>
+                    <h5 class="brand-title">Sila Dennis</h5>
+                    <div class="brand-subtitle">Software Engineer | Developer</div>
+                </div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#resume" class="nav-link">Resume</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
     </nav>
-    <div class="container-fluid">
-        <hr>
-        <hr>
-        <div id="about" class="row about-section">
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">Who am I?</h3>
-                <span class="line mb-5"></span>
-                <h5 class="mb-3">Passionate Mobile App Developer</h5>
-                <p class="mt-20">Hi there! I'm Sila Dennis, a dedicated mobile app developer with a knack for crafting seamless user experiences. I specialize in turning innovative ideas into engaging and intuitive mobile applications. With a keen eye for detail and a passion for cutting-edge technology, I strive to create solutions that not only meet but exceed the expectations of users. Let's collaborate and bring your app idea to life!</p>
-                <button class="btn btn-outline-danger"><a href="assets/files/sila_cv.pdf"><i class="icon-down-circled2"></i>Download My
-                        CV</a></button>
-            </div>
-            
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">Personal Info</h3>
-                <span class="line mb-5"></span>
-                <ul class="mt40 info list-unstyled">
-                    <li><span>Birthdate</span> : 09/13/1996</li>
-                    <li><span>Email</span> : ke.dennis254@outlook.com/li>
-                    <li><span>Phone</span> : + 254742086918</li>
-                    <li><span>Address</span> :  Nairobi - Kenya.</li>
-                </ul>
-                <ul class="social-icons pt-3">
-                    <li class="social-item"><a class="social-link" href="#"><i class="ti-facebook" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="#"><i class="ti-twitter" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="#"><i class="ti-google" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="#"><i class="ti-instagram" aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link" href="#"><i class="ti-github" aria-hidden="true"></i></a></li>
-                </ul>  
-            </div>
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">My Expertise</h3>
-                <span class="line mb-5"></span>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"><i class="ti-mobile icon-lg"></i></div>
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>Mobile App Development</h6>
-                        <p class="subtitle">Experienced in creating engaging and responsive mobile applications.</p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"><i class="ti-layout icon-lg"></i></div>
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>UI/UX Design</h6>
-                        <p class="subtitle">Skilled in crafting intuitive and visually appealing user interfaces.</p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"><i class="ti-settings icon-lg"></i></div>
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>Problem Solving</h6>
-                        <p class="subtitle">Capable of solving complex technical challenges with innovative solutions.</p>
-                        <hr>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-
-    <!--Resume Section-->
-    <section class="section bg-dark py-5" id="resume">
+    
+    <!-- About Section -->
+    <section class="section" id="about">
         <div class="container">
-            <h2 class="mb-5" color="#fff"><span class="text-light">My Resume</span>
-	    <hr color="#fff">
-	    </h2>
-            <hr>
-            <div class="row">
-                <div class="col-md-6 col-lg-8">
+            <h2 class="section-title">About <span class="highlight">Me</span></h2>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3 class="card-title">Who am I?</h3>
+                    <p>Hi there! I'm Sila Dennis, a dedicated mobile app developer with a knack for crafting seamless user experiences. I specialize in turning innovative ideas into engaging and intuitive mobile applications.</p>
+                    <p>With a keen eye for detail and a passion for cutting-edge technology, I strive to create solutions that not only meet but exceed the expectations of users. Let's collaborate and bring your app idea to life!</p>
+                    <a href="#" class="btn" style="margin-top: 20px;">Download My CV</a>
+                </div>
+                
+                <div class="about-card">
+                    <h3 class="card-title">Personal Info</h3>
+                    <ul class="info-list">
+                        <li><span>Birthdate:</span> 09/13/1996</li>
+                        <li><span>Email:</span> ke.dennis254@outlook.com</li>
+                        <li><span>Phone:</span> +254742086918</li>
+                        <li><span>Address:</span> Nairobi - Kenya</li>
+                    </ul>
+                    <div style="margin-top: 30px;">
+                        <ul class="social-icons" style="position: static; justify-content: flex-start;">
+                            <li class="social-item"><a class="social-link" href="https://www.facebook.com/dennis.silas.942/" style="color: var(--primary);"><i class="fab fa-facebook"></i></a></li>
+                            <li class="social-item"><a class="social-link" href="https://twitter.com/Dr20_30" style="color: var(--primary);"><i class="fab fa-twitter"></i></a></li>
+                            <li class="social-item"><a class="social-link" href="https://www.instagram.com/dennis.sila.942/" style="color: var(--primary);"><i class="fab fa-instagram"></i></a></li>
+                            <li class="social-item"><a class="social-link" href="https://github.com/SilaDennisN" style="color: var(--primary);"><i class="fab fa-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="about-card">
+                    <h3 class="card-title">My Expertise</h3>
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="expertise-content">
+                            <h4>Mobile App Development</h4>
+                            <p>Experienced in creating engaging and responsive mobile applications.</p>
+                        </div>
+                    </div>
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="expertise-content">
+                            <h4>UI/UX Design</h4>
+                            <p>Skilled in crafting intuitive and visually appealing user interfaces.</p>
+                        </div>
+                    </div>
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="expertise-content">
+                            <h4>Problem Solving</h4>
+                            <p>Capable of solving complex technical challenges with innovative solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resume Section -->
+    <section class="section bg-dark" id="resume">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">My <span class="highlight">Resume</span></h2>
+            
+            <div class="resume-grid">
+                <div>
                     <div class="card">
                         <div class="card-header">
-                            <div class="mt-2">
-                                <h4>Work Experience</h4>
-                                <span class="line"></span>  
-                            </div>
+                            <h3>Work Experience</h3>
                         </div>
                         <div class="card-body">
                             <div class="experience-item">
-                                <h6 class="title text-danger">2022 - Present</h6>
+                                <h6 class="title">2022 - Present</h6>
                                 <p class="position">UX Developer</p>
                                 <p class="subtitle">Experienced in designing and implementing user-centric interfaces for web and mobile applications.</p>
                             </div>
                             <hr>
                             <div class="experience-item">
-                                <h6 class="title text-danger">2020 - 2021</h6>
+                                <h6 class="title">2020 - 2021</h6>
                                 <p class="position">Front-end Developer</p>
                                 <p class="subtitle">Skilled in developing responsive and interactive user interfaces using front-end technologies.</p>
                             </div>
                             <hr>
                             <div class="experience-item">
-                                <h6 class="title text-danger">2018 - 2019</h6>
+                                <h6 class="title">2018 - 2019</h6>
                                 <p class="position">Excel Expertise</p>
                                 <p class="subtitle">Proficient in leveraging Excel for data analysis, reporting, and automation.</p>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-4">
+                    
                     <div class="card">
-                       <div class="card-header">
-                            <div class="pull-left">
-                                <h4 class="mt-2">Skills</h4>
-                                <span class="line"></span>  
-                            </div>
-                        </div>
-                        <div class="card-body pb-2">
-                            <h6>HTML5 &amp; CSS3</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 97%" aria-valuenow="25" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                            <h6>JavaScript &amp; PHP</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                            <h6>Java &amp; Python for Machine learning(ML)</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="75" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                        </div>
                         <div class="card-header">
-                            <div class="pull-left">
-                                <h4 class="mt-2">Software Development Tools</h4>
-                                <span class="line"></span>
-                            </div>
-                        </div>
-                        <div class="card-body pb-2">
-                            <h6>Android studio</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                            <h6>GitHub</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                            <h6>MySQL Workbench</h6>
-                            <div class="progress mb-3">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 70%" aria-valuenow="25" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-12">
-                    <div class="card">
-                       <div class="card-header">
-                            <div class="mt-2">
-                                <h4>Education</h4>
-                                <span class="line"></span>  
-                            </div>
+                            <h3>Education</h3>
                         </div>
                         <div class="card-body">
-                            <h6 class="title text-danger">2021 - 2025</h6>
-                            <p class="position">Currently studying Software Engineering BSc</p>
-                            <p class="subtitle">Pursuing a Bachelor of Science degree in Software Engineering with a focus on developing robust and scalable software solutions.</p>
+                            <div class="experience-item">
+                                <h6 class="title">2021 - 2025</h6>
+                                <p class="position">BSc in Software Engineering</p>
+                                <p class="subtitle">Pursuing a Bachelor of Science degree in Software Engineering with a focus on developing robust and scalable software solutions.</p>
+                            </div>
                             <hr>
-                            <h6 class="title text-danger">2019</h6>
-                            <p class="position">Diploma in ICT</p>
-                            <p class="subtitle">Successfully completed a diploma program in Information and Communication Technology, gaining practical skills in various ICT domains.</p>
+                            <div class="experience-item">
+                                <h6 class="title">2019</h6>
+                                <p class="position">Diploma in ICT</p>
+                                <p class="subtitle">Successfully completed a diploma program in Information and Communication Technology, gaining practical skills in various ICT domains.</p>
+                            </div>
                             <hr>
-                            <h6 class="title text-danger">2015 - 2018</h6>
-                            <p class="position">High School Certificate</p>
-                            <p class="subtitle">Graduated from high school with a strong foundation in academic subjects and critical thinking skills.</p>
+                            <div class="experience-item">
+                                <h6 class="title">2015 - 2018</h6>
+                                <p class="position">High School Certificate</p>
+                                <p class="subtitle">Graduated from high school with a strong foundation in academic subjects and critical thinking skills.</p>
+                            </div>
                         </div>
-                        
                     </div>
                 </div>
                 
+                <div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Technical Skills</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="progress-container">
+                                <h6>HTML5 &amp; CSS3</h6>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 97%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-container">
+                                <h6>JavaScript &amp; PHP</h6>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-container">
+                                <h6>Java &amp; Python for ML</h6>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Development Tools</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="progress-container">
+                                <h6>Android Studio</h6>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-container">
+                                <h6>GitHub</h6>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-container">
+                                <h6>MySQL Workbench</h6>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <hr>
         </div>
-        
     </section>
     
-    
-
-    <section class="section" id="service">
+    <!-- Services Section -->
+    <section class="section" id="services">
         <div class="container">
-            <hr>
-            <h2 class="mb-5 pb-4"><span class="text-danger">My</span> Services</h2>
+            <h2 class="section-title">My <span class="highlight">Services</span></h2>
             
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                        <div class="card-header has-icon">
-                            <i class="ti-vector text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">User-Centric Design</h5>
-                            <p class="subtitle">Crafting intuitive and visually appealing user interfaces tailored to your target audience.</p>
-                        </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pencil-ruler"></i>
                     </div>
+                    <h4 class="service-title">User-Centric Design</h4>
+                    <p>Crafting intuitive and visually appealing user interfaces tailored to your target audience.</p>
                 </div>
                 
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                        <div class="card-header has-icon">
-                            <i class="ti-write text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">Content Creation</h5>
-                            <p class="subtitle">Crafting engaging and informative content to captivate your audience and convey your message effectively.</p>
-                        </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-edit"></i>
                     </div>
+                    <h4 class="service-title">Content Creation</h4>
+                    <p>Crafting engaging and informative content to captivate your audience and convey your message effectively.</p>
                 </div>
                 
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                        <div class="card-header has-icon">
-                            <i class="ti-package text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">Product Development</h5>
-                            <p class="subtitle">Bringing your ideas to life by developing innovative and functional products tailored to your needs and requirements.</p>
-                        </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-box"></i>
                     </div>
+                    <h4 class="service-title">Product Development</h4>
+                    <p>Bringing your ideas to life by developing innovative and functional products tailored to your needs and requirements.</p>
                 </div>
                 
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                        <div class="card-header has-icon">
-                            <i class="ti-map-alt text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">Location-Based Services</h5>
-                            <p class="subtitle">Utilizing geographical data and technology to offer personalized and location-specific services to your audience.</p>
-                        </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-map-marker-alt"></i>
                     </div>
+                    <h4 class="service-title">Location-Based Services</h4>
+                    <p>Utilizing geographical data and technology to offer personalized and location-specific services to your audience.</p>
                 </div>
                 
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                        <div class="card-header has-icon">
-                            <i class="ti-bar-chart text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">Data Analysis & Reporting</h5>
-                            <p class="subtitle">Harnessing data to provide insightful analysis and generate comprehensive reports to drive informed decision-making.</p>
-                        </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
                     </div>
+                    <h4 class="service-title">Data Analysis & Reporting</h4>
+                    <p>Harnessing data to provide insightful analysis and generate comprehensive reports to drive informed decision-making.</p>
                 </div>
                 
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-5">
-                        <div class="card-header has-icon">
-                            <i class="ti-support text-danger" aria-hidden="true"></i>
-                        </div>
-                        <div class="card-body px-4 py-3">
-                            <h5 class="mb-3 card-title text-dark">Customer Support Solutions</h5>
-                            <p class="subtitle">Delivering top-notch customer support solutions to ensure customer satisfaction and loyalty through effective communication and problem-solving.</p>
-                        </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
                     </div>
+                    <h4 class="service-title">Customer Support Solutions</h4>
+                    <p>Delivering top-notch customer support solutions to ensure customer satisfaction and loyalty through effective communication.</p>
                 </div>
-                
             </div>
-            <hr>
-        </div>
-        
-    </section>
-
-    <section class="section bg-dark py-5">
-        <div class="container text-center">
-            <h2 class="text-light mb-5 font-weight-normal">I Am Available For FreeLance</h2>
-            <button class="btn bg-primary w-lg" onclick="location.href='mailto:ke.dennis254@outlook.com'">Hire me</button>
-
-            <hr color="#fff">
         </div>
     </section>
-
+    
+    <!-- Hire Section -->
+    <section class="section bg-dark hire-section">
+        <div class="container">
+            <h2 class="hire-title" style="color: white;">Need a <span class="highlight">Developer</span>?</h2>
+            <p style="color: white; max-width: 700px; margin: 0 auto; margin-bottom: 30px;">I'm available for freelance work. If you need a website, mobile app, or any software solution, feel free to contact me.</p>
+            <a href="#contact" class="btn">Hire Me Now</a>
+        </div>
+    </section>
+    
     <!-- Portfolio Section -->
-    <section class="section bg-custom-gray" id="portfolio">
+    <section class="section" id="portfolio">
         <div class="container">
-            <h1 class="mb-5"><span class="text-danger">My</span> Portfolio</h1>
-            <hr>
-            <hr>
-            <div class="portfolio">
-                <div class="filters">
-                    <a href="#" data-filter=".new" class="active">
-                        All Categories
-                    </a>
-                    <a href="#" data-filter=".advertising">
-                        Websites
-                    </a>
-                    <a href="#" data-filter=".branding">
-                        Mobile Applications
-                    </a>
-                    <a href="#" data-filter=".web">
-                        Information Management Systems
-                    </a>
-                </div>
-                <div class="portfolio-container"> 
-                    <div class="col-md-6 col-lg-4 web new">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/mobile 1.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/mobile 4.png"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">Mobile Application</h6>
-                                    <p class="subtitle content">Bring Your Ideas to Life with Custom Mobile Applications</p>
-                                </div>
-                            </div>   
-                        </div>             
-                    </div>
-                    <div class="col-md-6 col-lg-4 web new">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/web-3.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/web-3.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">Website</h6>
-                                    <p class="subtitle content">Empower Your Online Presence with Cutting-Edge Web Solutions</p>
-                                </div>
-                            </div>
-                        </div>                         
-                    </div>
-                    <div class="col-md-6 col-lg-4 advertising new">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/web 1.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">                         
-                            <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/web 1.png"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">Website</h6>
-                                    <p class="subtitle content">Empower Your Online Presence with Cutting-Edge Web Solutions</p>
-                                </div>
-                            </div>    
-                        </div>              
-                    </div> 
-                    <div class="col-md-6 col-lg-4 web">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/IMSystem.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
-                            <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/IMSystem.png"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">Information Management System</h6>
-                                    <p class="subtitle">Optimize your organization's data handling and accessibility with our comprehensive Information Management System. Seamlessly manage, analyze, and retrieve critical information, empowering your team to make informed decisions swiftly and efficiently.</p>
-                                </div>
-                            </div>
-                        </div>                                                     
-                    </div>
-
-                    <div class="col-md-6 col-lg-4 advertising"> 
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/mobile 5.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">                               
-                            <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/advertising-1.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">Mobile Application</h6>
-                                    <p class="subtitle content">Empower Your Online Presence with Cutting-Edge Web Solutions</p>
-                                </div>
-                            </div>
-                        </div>                                                       
-                    </div> 
-                    <div class="col-md-6 col-lg-4 web new">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/web-3.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                           <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/web-3.jpg"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">Website</h6>
-                                    <p class="subtitle content">Empower Your Online Presence with Cutting-Edge Web Solutions</p>
-                                </div>
-                            </div>
-                        </div>                                                     
-                    </div>
-                    <div class="col-md-6 col-lg-4 advertising new">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/web 1.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">       
-                           <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/web 1.png"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">Information Management System</h6>
-                                    <p class="subtitle">Optimize your organization's data handling and accessibility with our comprehensive Information Management System. Seamlessly manage, analyze, and retrieve critical information, empowering your team to make informed decisions swiftly and efficiently.</p>
-
-                                </div>
-                            </div>
-                        </div>                                                       
-                    </div> 
-                    <div class="col-md-6 col-lg-4 advertising new"> 
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/IMSystem.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">            
-                            <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/IMSystem.png"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">Information Management System</h6>
-                                    <p class="subtitle">Optimize your organization's data handling and accessibility with our comprehensive Information Management System. Seamlessly manage, analyze, and retrieve critical information, empowering your team to make informed decisions swiftly and efficiently.</p>
-                                </div>
-                            </div>
-                        </div>
-                                
-                    </div> 
-                    <div class="col-md-6 col-lg-4 branding new">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/mobile 1.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">                        
-                            <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/mobile 1.png"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">Mobile Application</h6>
-                                    <p class="subtitle content">Bring Your Ideas to Life with Custom Mobile Applications</p>
-                                </div>
-                            </div> 
-                        </div>
-                    </div> 
-                    <div class="col-md-6 col-lg-4 branding">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/mobile 2.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
-                            <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/mobile 2.png"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">Mobile Application</h6>
-                                    <p class="subtitle content">Bring Your Ideas to Life with Custom Mobile Applications</p>
-                                </div>
-                            </div>
-                        </div>                                                     
-                    </div> 
-                    <div class="col-md-6 col-lg-4 branding new">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/mobile 4.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">   
-                            <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/mobile 4.png"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">Mobile Application</h6>
-                                    <p class="subtitle content">Bring Your Ideas to Life with Custom Mobile Applications</p>
-                                </div>
-                            </div>
-                        </div>                                                    
-                    </div> 
-                    <div class="col-md-6 col-lg-4 branding">
-                        <div class="portfolio-item">
-                            <img src="assets/imgs/mobile 5.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">                      
-                            <div class="content-holder">
-                                <a class="img-popup" href="assets/imgs/mobile 5.png"></a>
-                                <div class="text-holder">
-                                    <h6 class="title">Mobile Application</h6>
-                                    <p class="subtitle content">Bring Your Ideas to Life with Custom Mobile Applications</p>
-                                </div>
-                            </div>
-                        </div>                                                      
-                    </div> 
-
-                </div> 
-            </div>  
-        </div>            
-    </section>
-    <!-- End of portfolio section -->
-
-        <!-- testimonal section start  -->
-<section id="testimonial-sec" class="testimonial-sec">
-    <section class="testimonial-sec">
-        <div class="testimonial layout">
-            <h3 class="uppercase text-center pd-30">Testimonial</h3>
-            <hr>
-            <div class="testimonial-parent flex space-between align-center">
-                <div class="testimonial-child">
-                    <img src="assets/imgs/testm2.png" alt="">
-                    <p>"I had the privilege of working with Dennis on a complex software project, 
-                        and I can't praise his skills enough. He's not just a developer; he's a problem solver
-                        who goes above and beyond to ensure success. Dennis is dedicated, innovative, 
-                        and always striving for excellence. Working with him has been a truly remarkable 
-                        experience."</p>
-                    <div class="review-sec flex space-between">
-                        <div class="icon-sec">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
-                        </div>
-                        <div class="name-sec text-center">
-                            <h4>Tracy Shyla</h4>
-                            <p class="designation">Senior Developer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-child">
-                    <img src="assets/imgs/testm1.jpg" alt="">
-                    <p>"Dennis is an exceptional software engineer with a rare talent for turning ideas into 
-                        reality. His ability to create intuitive and feature-rich applications is second to 
-                        none. He understands the dynamic world of software development and delivers mobile 
-                        experiences that exceed expectations. Dennis is not just a developer; he's a visionary 
-                        who transforms concepts into remarkable software."</p>
-                    <div class="review-sec flex space-between">
-                        <div class="icon-sec">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <div class="name-sec text-center">
-                            <h4>Lauren Scott</h4>
-                            <p class="designation">Managing Director</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-child">
-                    <img src="assets/imgs/testm3.png" alt="">
-                    <p>"In a rapidly evolving digital landscape, having Dennis as a part of our team has been a game-changer. 
-                        He's more than a software engineer; he's a reliable, creative, and dedicated professional. Dennis's work 
-                        speaks for itself, and his commitment to excellence shines through every project.
-                         It's been a pleasure to have his expertise on board."</p>
-                    <div class="review-sec flex space-between">
-                        <div class="icon-sec">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <div class="name-sec text-center">
-                            <h4>Vincent Auma</h4>
-                            <p class="designation">Biomedical Technician.</p>
-                        </div>
-                    </div>
-                </div>
+            <h2 class="section-title">My <span class="highlight">Portfolio</span></h2>
+            
+            <div class="portfolio-filters">
+                <button class="portfolio-filter active" data-filter="all">All</button>
+                <button class="portfolio-filter" data-filter="web">Web Apps</button>
+                <button class="portfolio-filter" data-filter="mobile">Mobile Apps</button>
+                <button class="portfolio-filter" data-filter="ui">UI/UX</button>
             </div>
-        </div>
-    </section>
-</section>
-    <!-- testimonal section end -->
-
-    <div class="section contact" id="contact">
-        <div class="container">
-            <div class="row">
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web">
+                    <img src="/api/placeholder/400/320" alt="Web Project 1" class="portfolio-img">
+                    <div class="portfolio-content">
+                        <h4>E-commerce Platform</h4>
+                        <p>Web Development</p>
+                    </div>
+                </div>
                 
-                <div class="col-lg-8">
-                    <div class="contact-info-card">
-                        <h4 class="contact-title">Get in touch</h4>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-mobile icon-md"></i>
-                            </div>
-                            <div class="col-10 ">
-                                <h6 class="d-inline">Phone : <br> <span class="text-muted">+254742 086 918</span></h6>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-map-alt icon-md"></i>
-                            </div>
-                            <div class="col-10">
-                                <h6 class="d-inline">Address :<br> <span class="text-muted">124 - 90138 Makindu.</span></h6>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-1 pt-1 mr-1">
-                                <i class="ti-envelope icon-md"></i>
-                            </div>
-                            <div class="col-10">
-                                <h6 class="d-inline">Email :<br> <span class="text-muted">ke.dennis254@outlook.com</span></h6>
-                            </div>
-                        </div>
-                        <ul class="social-icons pt-3">
-                <li class="social-item"><a class="social-link text-light" href="https://www.facebook.com/dennis.silas.942/"><i class="ti-facebook" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="https://twitter.com/Dr20_30"><i class="ti-twitter" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="https://www.instagram.com/dennis.sila.942/"><i class="ti-instagram" aria-hidden="true"></i></a></li>
-                <li class="social-item"><a class="social-link text-light" href="https://github.com/Sila12568"><i class="ti-github" aria-hidden="true"></i></a></li>
-            </ul>
+                <div class="portfolio-item" data-category="mobile">
+                    <img src="/api/placeholder/400/320" alt="Mobile Project 1" class="portfolio-img">
+                    <div class="portfolio-content">
+                        <h4>Fitness Tracker App</h4>
+                        <p>Mobile App Development</p>
                     </div>
                 </div>
-
-                <div class="col-lg-4">
-                    <div class="contact-form-card">
-                        <h4 class="contact-title">Send a message</h4>
-                        <form action="">
-                            <div class="form-group">
-                                <a href="https://wa.me/+254742086918?text=Hello%20there!" class="form-control btn btn-primary">Send Message</a>
-                            </div>
-                        </form>
+                
+                <div class="portfolio-item" data-category="ui">
+                    <img src="/api/placeholder/400/320" alt="UI Project 1" class="portfolio-img">
+                    <div class="portfolio-content">
+                        <h4>Food Delivery UI</h4>
+                        <p>UI/UX Design</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="web">
+                    <img src="/api/placeholder/400/320" alt="Web Project 2" class="portfolio-img">
+                    <div class="portfolio-content">
+                        <h4>Learning Management System</h4>
+                        <p>Web Development</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="mobile">
+                    <img src="/api/placeholder/400/320" alt="Mobile Project 2" class="portfolio-img">
+                    <div class="portfolio-content">
+                        <h4>Task Management App</h4>
+                        <p>Mobile App Development</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="ui">
+                    <img src="/api/placeholder/400/320" alt="UI Project 2" class="portfolio-img">
+                    <div class="portfolio-content">
+                        <h4>Banking Application UI</h4>
+                        <p>UI/UX Design</p>
                     </div>
                 </div>
             </div>
-
         </div>
-    </div>
-    <footer class="footer py-3">
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="section bg-dark" id="contact">
         <div class="container">
-            <p class="small mb-0 text-light">
-                &copy; <script>document.write(new Date().getFullYear())</script> Created By <a href="http://devcrud.com" target="_blank"><span class="text-danger" title="Bootstrap 4 Themes and Dashboards">Sila Dennis</span></a> 
-            </p>
+            <h2 class="section-title" style="color: white;">Get in <span class="highlight">Touch</span></h2>
+            
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 20px;">Contact Information</h3>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h5>Location</h5>
+                            <p>Nairobi, Kenya</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h5>Email</h5>
+                            <p>ke.dennis254@outlook.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h5>Phone</h5>
+                            <p>+254742086918</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div>
+                            <h5>Website</h5>
+                            <p>www.siladennis.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sila Dennis. All Rights Reserved.</p>
         </div>
     </footer>
-
-	<!-- core  -->
-    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
-
-    <!-- bootstrap 3 affix -->
-    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
-
-    <!-- Isotope  -->
-    <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
     
-    <!-- Google mpas -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>
-
-    <!-- JohnDoe js -->
-    <script src="assets/js/johndoe.js"></script>
-
+    <!-- JavaScript -->
+    <script>
+        // Navbar scroll behavior
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+        
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Portfolio filtering
+        const filters = document.querySelectorAll('.portfolio-filter');
+        const items = document.querySelectorAll('.portfolio-item');
+        
+        filters.forEach(filter => {
+            filter.addEventListener('click', function() {
+                // Remove active class from all filters
+                filters.forEach(f => f.classList.remove('active'));
+                
+                // Add active class to clicked filter
+                this.classList.add('active');
+                
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Show/hide portfolio items based on filter
+                items.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+    </script>
 </body>
 </html>
