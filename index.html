@@ -1101,7 +1101,7 @@
             
             <div class="portfolio-grid">
                 <div class="portfolio-item" data-category="mobile">
-                    <img src="assets/imgs/web-1.jpg" alt="Portfolio Item" class="portfolio-img">
+                    <img src="assets/imgs/web-1.png" alt="Portfolio Item" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">Fitness Tracker App</h3>
                         <p class="portfolio-category">Mobile App</p>
@@ -1110,7 +1110,7 @@
                 </div>
                 
                 <div class="portfolio-item" data-category="web">
-                    <img src="assets/imgs/web-2.jpg" alt="Portfolio Item" class="portfolio-img">
+                    <img src="assets/imgs/web-2.png" alt="Portfolio Item" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">E-commerce Platform</h3>
                         <p class="portfolio-category">Web Development</p>
@@ -1119,7 +1119,7 @@
                 </div>
                 
                 <div class="portfolio-item" data-category="design">
-                    <img src="assets/imgs/web-3.jpg" alt="Portfolio Item" class="portfolio-img">
+                    <img src="assets/imgs/web-3.png" alt="Portfolio Item" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">Travel App UI Kit</h3>
                         <p class="portfolio-category">UI/UX Design</p>
@@ -1128,7 +1128,7 @@
                 </div>
                 
                 <div class="portfolio-item" data-category="mobile">
-                    <img src="assets/imgs/web-4.jpg" alt="Portfolio Item" class="portfolio-img">
+                    <img src="assets/imgs/web-4.png" alt="Portfolio Item" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">Weather Application</h3>
                         <p class="portfolio-category">Mobile App</p>
@@ -1137,7 +1137,7 @@
                 </div>
                 
                 <div class="portfolio-item" data-category="web">
-                    <img src="assets/imgs/web-2.jpg" alt="Portfolio Item" class="portfolio-img">
+                    <img src="assets/imgs/web-2.png" alt="Portfolio Item" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">Portfolio Website</h3>
                         <p class="portfolio-category">Web Development</p>
@@ -1146,7 +1146,7 @@
                 </div>
                 
                 <div class="portfolio-item" data-category="design">
-                    <img src="assets/imgs/web-1.jpg" alt="Portfolio Item" class="portfolio-img">
+                    <img src="assets/imgs/web-1.png" alt="Portfolio Item" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">Food Delivery App</h3>
                         <p class="portfolio-category">UI/UX Design</p>
@@ -1210,25 +1210,29 @@
                 </div>
                 
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://formspree.io/f/myzebpzb" method="POST">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                         </div>
                         
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
                         </div>
                         
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
+                            <input type="text" name="subject" class="form-control" placeholder="Subject">
                         </div>
                         
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                            <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
                         </div>
+                        
+                        <!-- Optional: redirect after submission -->
+                        <input type="hidden" name="_next" value="https://siladennis.co.ke/thank-you.html">
                         
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
+                    <div id="formStatus" class="form-status"></div>
                 </div>
             </div>
         </div>
@@ -1314,15 +1318,41 @@
         });
         
         // Form submission
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Form validation and submission logic would go here
-            alert('Thank you for your message! I will get back to you soon.');
+        // Modern form submission handling for GitHub Pages
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    formStatus.innerHTML = '<p class="sending">Sending message...</p>';
+    
+    // Get form data
+    const formData = new FormData(contactForm);
+    
+    // Send data using fetch API
+    fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            formStatus.innerHTML = '<p class="success">Thank you! Your message has been sent successfully.</p>';
             contactForm.reset();
-        });
+        } else {
+            formStatus.innerHTML = '<p class="error">Sorry, there was a problem sending your message. Please try again.</p>';
+        }
+    })
+    .catch(error => {
+        formStatus.innerHTML = '<p class="error">Sorry, there was a problem sending your message. Please try again.</p>';
+        console.error('Error:', error);
+    });
+});
     </script>
 </body>
 </html>
