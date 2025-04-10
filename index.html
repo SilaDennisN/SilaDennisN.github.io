@@ -791,6 +791,153 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Portfolio Modal Styles */
+.portfolio-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-modal.show {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--light);
+    margin: 5% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.4s ease-out;
+}
+
+.portfolio-modal.show .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: var(--secondary);
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2;
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    color: var(--primary);
+}
+
+.modal-header {
+    padding: 25px 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+    color: var(--secondary);
+    margin-bottom: 5px;
+}
+
+.modal-header p {
+    color: var(--gray);
+    font-size: 1.1rem;
+}
+
+.modal-body {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.modal-image-container {
+    height: 400px;
+    overflow: hidden;
+}
+
+.modal-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-description {
+    padding: 30px;
+    background-color: var(--card-bg);
+}
+
+.modal-description h3 {
+    margin-bottom: 15px;
+    color: var(--secondary);
+}
+
+.modal-description p {
+    margin-bottom: 20px;
+    color: var(--dark);
+}
+
+.modal-details {
+    margin-top: 25px;
+}
+
+.detail-item {
+    margin-bottom: 15px;
+}
+
+.detail-item h4 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: var(--primary);
+}
+
+.detail-item p {
+    margin-bottom: 0;
+}
+
+.modal-footer {
+    padding: 20px 30px;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+.modal-footer .btn {
+    padding: 12px 35px;
+}
+
+/* Responsive adjustments for modal */
+@media (max-width: 768px) {
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-image-container {
+        height: 250px;
+    }
+    
+    .modal-content {
+        margin: 15% auto;
+        width: 95%;
+    }
+}
     </style>
 </head>
 <body>
@@ -863,7 +1010,7 @@
                                 <i class="fas fa-calendar"></i>
                             </div>
                             <div>
-                                <strong>Birthdate:</strong> September 13, 1996
+                                <strong>Birthdate:</strong> February 22, 1999
                             </div>
                         </div>
                         
@@ -1088,74 +1235,112 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section class="section" id="portfolio">
-        <div class="container">
-            <h2 class="section-title">My Portfolio</h2>
-            
-            <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
-                <button class="filter-btn" data-filter="web">Web Projects</button>
-                <button class="filter-btn" data-filter="design">UI/UX Design</button>
+    <!-- Portfolio Section -->
+<section class="section" id="portfolio">
+    <div class="container">
+        <h2 class="section-title">My Portfolio</h2>
+        
+        <div class="portfolio-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+            <button class="filter-btn" data-filter="web">Web Projects</button>
+            <button class="filter-btn" data-filter="design">UI/UX Design</button>
+        </div>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-item" data-category="mobile">
+                <img src="assets/imgs/web-1.jpg" alt="Portfolio Item" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Fitness Tracker App</h3>
+                    <p class="portfolio-category">Mobile App</p>
+                    <button class="btn preview-btn" data-project="fitness-tracker">Preview Project</button>
+                </div>
             </div>
             
-            <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="mobile">
-                    <img src="assets/imgs/web-1.jpg" alt="Portfolio Item" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Fitness Tracker App</h3>
-                        <p class="portfolio-category">Mobile App</p>
-                        <a href="#" class="btn">View Details</a>
-                    </div>
+            <div class="portfolio-item" data-category="web">
+                <img src="assets/imgs/web-2.jpg" alt="Portfolio Item" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">E-commerce Platform</h3>
+                    <p class="portfolio-category">Web Development</p>
+                    <button class="btn preview-btn" data-project="ecommerce">Preview Project</button>
                 </div>
-                
-                <div class="portfolio-item" data-category="web">
-                    <img src="assets/imgs/web-2.jpg" alt="Portfolio Item" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">E-commerce Platform</h3>
-                        <p class="portfolio-category">Web Development</p>
-                        <a href="#" class="btn">View Details</a>
-                    </div>
+            </div>
+            
+            <div class="portfolio-item" data-category="design">
+                <img src="assets/imgs/web-3.jpg" alt="Portfolio Item" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Travel App UI Kit</h3>
+                    <p class="portfolio-category">UI/UX Design</p>
+                    <button class="btn preview-btn" data-project="travel-app">Preview Project</button>
                 </div>
-                
-                <div class="portfolio-item" data-category="design">
-                    <img src="assets/imgs/web-3.jpg" alt="Portfolio Item" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Travel App UI Kit</h3>
-                        <p class="portfolio-category">UI/UX Design</p>
-                        <a href="#" class="btn">View Details</a>
-                    </div>
+            </div>
+            
+            <div class="portfolio-item" data-category="mobile">
+                <img src="assets/imgs/web-4.jpg" alt="Portfolio Item" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Weather Application</h3>
+                    <p class="portfolio-category">Mobile App</p>
+                    <button class="btn preview-btn" data-project="weather-app">Preview Project</button>
                 </div>
-                
-                <div class="portfolio-item" data-category="mobile">
-                    <img src="assets/imgs/web-4.jpg" alt="Portfolio Item" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Weather Application</h3>
-                        <p class="portfolio-category">Mobile App</p>
-                        <a href="#" class="btn">View Details</a>
-                    </div>
+            </div>
+            
+            <div class="portfolio-item" data-category="web">
+                <img src="assets/imgs/web-2.jpg" alt="Portfolio Item" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Portfolio Website</h3>
+                    <p class="portfolio-category">Web Development</p>
+                    <button class="btn preview-btn" data-project="portfolio-site">Preview Project</button>
                 </div>
-                
-                <div class="portfolio-item" data-category="web">
-                    <img src="assets/imgs/web-2.jpg" alt="Portfolio Item" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Portfolio Website</h3>
-                        <p class="portfolio-category">Web Development</p>
-                        <a href="#" class="btn">View Details</a>
-                    </div>
+            </div>
+            
+            <div class="portfolio-item" data-category="design">
+                <img src="assets/imgs/web-1.jpg" alt="Portfolio Item" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Food Delivery App</h3>
+                    <p class="portfolio-category">UI/UX Design</p>
+                    <button class="btn preview-btn" data-project="food-delivery">Preview Project</button>
                 </div>
-                
-                <div class="portfolio-item" data-category="design">
-                    <img src="assets/imgs/web-1.jpg" alt="Portfolio Item" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Food Delivery App</h3>
-                        <p class="portfolio-category">UI/UX Design</p>
-                        <a href="#" class="btn">View Details</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Modal -->
+<div class="portfolio-modal" id="portfolioModal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-header">
+            <h2 id="modalTitle">Project Title</h2>
+            <p id="modalCategory">Category</p>
+        </div>
+        <div class="modal-body">
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="Project Preview">
+            </div>
+            <div class="modal-description">
+                <h3>Project Description</h3>
+                <p id="modalDescription">Loading project details...</p>
+                <div class="modal-details">
+                    <div class="detail-item">
+                        <h4>Technologies Used</h4>
+                        <p id="modalTechnologies">Loading technologies...</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Client</h4>
+                        <p id="modalClient">Loading client information...</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Completion Date</h4>
+                        <p id="modalDate">Loading date...</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="modal-footer">
+            <a id="modalLink" href="#" target="_blank" class="btn">Visit Website</a>
+        </div>
+    </div>
+</div>
 
     <!-- Contact Section -->
     <section class="section contact-section" id="contact">
@@ -1351,6 +1536,145 @@ contactForm.addEventListener('submit', function(e) {
     .catch(error => {
         formStatus.innerHTML = '<p class="error">Sorry, there was a problem sending your message. Please try again.</p>';
         console.error('Error:', error);
+    });
+});
+
+// Portfolio projects data
+const portfolioProjects = {
+    'fitness-tracker': {
+        title: 'Fitness Tracker App',
+        category: 'Mobile App',
+        image: 'assets/imgs/web-1.jpg',
+        description: 'A comprehensive fitness tracking application that helps users monitor their workouts, track calories, and achieve their fitness goals. The app includes features like custom workout plans, progress tracking, and social sharing capabilities.',
+        technologies: 'Java, Android SDK, Firebase, Google Fit API',
+        client: 'FitLife Solutions',
+        date: 'March 2024',
+        link: 'https://example.com/fitness-tracker'
+    },
+    'ecommerce': {
+        title: 'E-commerce Platform',
+        category: 'Web Development',
+        image: 'assets/imgs/web-2.jpg',
+        description: 'A fully responsive e-commerce platform with seamless product browsing, secure payment integration, and user account management. The platform includes an intuitive admin dashboard for inventory management and sales analytics.',
+        technologies: 'React, Node.js, Express, MongoDB, Stripe API',
+        client: 'Retail Ventures Ltd',
+        date: 'January 2024',
+        link: 'https://example.com/ecommerce'
+    },
+    'travel-app': {
+        title: 'Travel App UI Kit',
+        category: 'UI/UX Design',
+        image: 'assets/imgs/web-3.jpg',
+        description: 'A comprehensive UI kit for travel applications featuring over 50 screens with pixel-perfect design. The kit includes components for flight booking, hotel reservations, destination discovery, and trip planning.',
+        technologies: 'Figma, Adobe XD, Illustrator',
+        client: 'TravelWise Co.',
+        date: 'November 2023',
+        link: 'https://example.com/travel-app'
+    },
+    'weather-app': {
+        title: 'Weather Application',
+        category: 'Mobile App',
+        image: 'assets/imgs/web-4.jpg',
+        description: 'A sleek weather application that provides real-time weather updates, forecasts, and severe weather alerts. The app features interactive maps, detailed hourly forecasts, and customizable notifications.',
+        technologies: 'Kotlin, Android Jetpack, OpenWeatherMap API',
+        client: 'ClimateTrack Inc',
+        date: 'September 2023',
+        link: 'https://example.com/weather-app'
+    },
+    'portfolio-site': {
+        title: 'Portfolio Website',
+        category: 'Web Development',
+        image: 'assets/imgs/web-2.jpg',
+        description: 'A modern, responsive portfolio website showcasing a photographer\'s work. The site features image galleries, client testimonials, service information, and a contact form with integrated booking functionality.',
+        technologies: 'HTML5, CSS3, JavaScript, PHP',
+        client: 'Jane Doe Photography',
+        date: 'July 2023',
+        link: 'https://example.com/photographer-portfolio'
+    },
+    'food-delivery': {
+        title: 'Food Delivery App',
+        category: 'UI/UX Design',
+        image: 'assets/imgs/web-1.jpg',
+        description: 'A comprehensive UI/UX design for a food delivery application that focuses on user experience and efficient ordering process. The design includes restaurant browsing, menu exploration, order tracking, and payment screens.',
+        technologies: 'Figma, Sketch, Principle',
+        client: 'QuickBite Solutions',
+        date: 'May 2023',
+        link: 'https://example.com/food-delivery'
+    }
+};
+
+// Portfolio Modal functionality
+// Portfolio Modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('portfolioModal');
+    const previewButtons = document.querySelectorAll('.preview-btn');
+    const closeModal = document.querySelector('.close-modal');
+    
+    // Modal elements
+    const modalTitle = document.getElementById('modalTitle');
+    const modalCategory = document.getElementById('modalCategory');
+    const modalImage = document.getElementById('modalImage');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalTechnologies = document.getElementById('modalTechnologies');
+    const modalClient = document.getElementById('modalClient');
+    const modalDate = document.getElementById('modalDate');
+    const modalLink = document.getElementById('modalLink');
+    
+    // Open modal with project data
+    previewButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const projectKey = this.getAttribute('data-project');
+            const project = portfolioProjects[projectKey];
+            
+            if (project) {
+                // Populate modal with project data
+                modalTitle.textContent = project.title;
+                modalCategory.textContent = project.category;
+                modalImage.src = project.image;
+                modalImage.alt = project.title;
+                modalDescription.textContent = project.description;
+                modalTechnologies.textContent = project.technologies;
+                modalClient.textContent = project.client;
+                modalDate.textContent = project.date;
+                modalLink.href = project.link;
+                
+                // Show modal - first set display to block, then add show class
+                modal.style.display = 'block';
+                // Use setTimeout to ensure display property is applied before transitioning
+                setTimeout(() => {
+                    modal.classList.add('show');
+                }, 10);
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            }
+        });
+    });
+    
+    // Close modal functions
+    function closeModalFunction() {
+        modal.classList.remove('show');
+        // Wait for transition to complete before hiding
+        setTimeout(() => {
+            if (!modal.classList.contains('show')) {
+                modal.style.display = 'none';
+            }
+            document.body.style.overflow = ''; // Re-enable scrolling
+        }, 300);
+    }
+    
+    closeModal.addEventListener('click', closeModalFunction);
+    
+    // Close when clicking outside the modal content
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModalFunction();
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            closeModalFunction();
+        }
     });
 });
     </script>
