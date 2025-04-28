@@ -108,7 +108,7 @@ const portfolioProjects = {
 'ecommerce': {
  title: 'School Management System',
  category: 'Web Development',
- image: '../assets/imgs/web-2.png',
+ image: '../assets/imgs/shopMangaerApp.png',
  description: 'A comprehensive school management platform designed to streamline administrative tasks and enhance communication between teachers, students, and parents. The system features modules for student enrollment, attendance tracking, grading, fee management, and academic reporting. It also includes an intuitive admin dashboard for efficient oversight of school operations.',
  technologies: 'React, Node.js, MySql, RestAPI',
  client: 'Philadelphia Academy- Malili',
@@ -128,7 +128,7 @@ const portfolioProjects = {
 'shop-app': {
  title: 'Shop Management App',
  category: 'Mobile App',
- image: '../assets/imgs/shopMangaerApp.png',
+ image: '../assets/imgs/potfolio.png',
  description: 'A mobile-based shop management application tailored for small and medium-sized retail businesses. The app allows shop owners to manage inventory, track sales, record expenses, and monitor daily profits in real-time. It features intuitive dashboards, product and category management, and offline functionality for use in areas with limited internet access.',
  technologies: 'Java, Android Jetpack, Firebase',
  client: 'Malek Supplies - Wote',
@@ -147,14 +147,14 @@ const portfolioProjects = {
  link: 'https://example.com/'
 },
 'food-delivery': {
- title: 'Food Delivery App',
+ title: 'Church Website',
  category: 'UI/UX Design',
- image: 'assets/imgs/web-1.png',
+ image: 'assets/imgs/chrchWebsite.jpg',
  description: 'A comprehensive UI/UX design for a food delivery application that focuses on user experience and efficient ordering process. The design includes restaurant browsing, menu exploration, order tracking, and payment screens.',
- technologies: 'Figma, Sketch, Principle',
- client: 'QuickBite Solutions',
+ technologies: 'HTML, CSS, Javascript',
+ client: 'Chemondi SDA Church',
  date: 'May 2023',
- link: 'https://example.com/food-delivery'
+ link: 'https://example.com/Church-Website'
 }
 };
 
