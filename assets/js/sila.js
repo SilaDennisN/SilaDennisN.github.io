@@ -146,15 +146,15 @@ const portfolioProjects = {
  date: '2024',
  link: 'https://example.com/'
 },
-'food-delivery': {
- title: 'Church Website',
- category: 'UI/UX Design',
- image: 'assets/imgs/chrchWebsite.jpg',
- description: 'A comprehensive UI/UX design for a food delivery application that focuses on user experience and efficient ordering process. The design includes restaurant browsing, menu exploration, order tracking, and payment screens.',
- technologies: 'HTML, CSS, Javascript',
- client: 'Chemondi SDA Church',
- date: 'May 2023',
- link: 'https://example.com/Church-Website'
+'church-website': {
+  title: 'Church Website',
+  category: 'UI/UX Design',
+  image: 'assets/imgs/churchWebsite.jpg',
+  description: 'A clean and user-friendly UI/UX design for a church website. The website includes features such as service schedules, event announcements, sermon archives, prayer requests, and contact information. It focuses on providing an engaging experience for members and visitors, ensuring easy access to key church activities and resources.',
+  technologies: 'HTML, CSS, Javascript',
+  client: 'Chemondi SDA Church',
+  date: 'May 2024',
+  link: 'https://example.com/Church-Website'
 }
 };
 
