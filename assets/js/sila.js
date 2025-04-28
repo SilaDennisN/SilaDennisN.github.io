@@ -128,7 +128,7 @@ const portfolioProjects = {
 'shop-app': {
  title: 'Shop Management App',
  category: 'Mobile App',
- image: '../assets/imgs/potfolio.png',
+ image: '../assets/imgs/shopMangaerApp.png',
  description: 'A mobile-based shop management application tailored for small and medium-sized retail businesses. The app allows shop owners to manage inventory, track sales, record expenses, and monitor daily profits in real-time. It features intuitive dashboards, product and category management, and offline functionality for use in areas with limited internet access.',
  technologies: 'Java, Android Jetpack, Firebase',
  client: 'Malek Supplies - Wote',
