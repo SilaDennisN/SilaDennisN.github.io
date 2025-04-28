@@ -149,7 +149,7 @@ const portfolioProjects = {
 'church-website': {
   title: 'Church Website',
   category: 'UI/UX Design',
-  image: 'assets/imgs/churchWebsite.jpg',
+  image: 'assets/imgs/church.png',
   description: 'A clean and user-friendly UI/UX design for a church website. The website includes features such as service schedules, event announcements, sermon archives, prayer requests, and contact information. It focuses on providing an engaging experience for members and visitors, ensuring easy access to key church activities and resources.',
   technologies: 'HTML, CSS, Javascript',
   client: 'Chemondi SDA Church',
